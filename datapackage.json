@@ -1,0 +1,44 @@
+{
+  "name": "dataset",
+  "title": "My dataset",
+  "resources": [{
+      "name": "parent",
+      "path": "data/parent.csv",
+      "schema": {
+        "fields": [{
+            "name": "id",
+            "type": "number",
+            "description": "ID of the parent"
+          },
+          {
+            "name": "attribute",
+            "type": "string",
+            "description": "the attribute"
+          }
+        ]
+      }
+    },
+    {
+      "name": "child",
+      "path": "data/child.csv",
+      "schema": {
+        "fields": [{
+          "name": "id",
+          "type": "number",
+          "description": "the id of the child"
+        }, {
+          "name": "attribute",
+          "type": "string",
+          "description": "the child attribute"
+        }, {
+          "name": "parent_id",
+          "type": "number",
+          "reference": {
+            "resource": "parent",
+            "fields": "id"
+          }
+        }]
+      }
+    }
+  ]
+}
